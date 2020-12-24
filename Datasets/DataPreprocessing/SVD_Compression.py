@@ -17,7 +17,7 @@ def methods(sigma, u, v, K):  # svd方法的核心（奇异值，左奇异矩阵
 def SVDCompression(img_path, save_dir, K):  # 奇异值个数
     if not os.path.exists(save_dir):
         os.mkdir(save_dir)
-    img = cv2.imread(img_path, cv2.IMREAD_UNCHANGED)  # BGR通道顺序
+    img = cv2.imread(img_path, cv2.IMREAD_COLOR)  # BGR通道顺序
     u_r, sigma_r, v_r = np.linalg.svd(img[:, :, 2])  # 进行svd分解(返回一个元组)
     u_g, sigma_g, v_g = np.linalg.svd(img[:, :, 1])  # 进行svd分解(返回一个元组)
     u_b, sigma_b, v_b = np.linalg.svd(img[:, :, 0])  # 进行svd分解(返回一个元组)
